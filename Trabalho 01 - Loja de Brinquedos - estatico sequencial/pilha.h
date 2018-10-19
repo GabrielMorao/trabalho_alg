@@ -3,19 +3,21 @@
 #include <stdio.h>
 #include "lista.h"
 
+#define tam_max
 
 /*aqui foi incluida a lista.h pois nela ja estao contidas
 as estruturas de no e brinquedo além da definição de max*/
 
 typedef struct{
-    brinquedo vet[max];
+    brinquedo vet[2];
     int topo;
+    int num_elementos;
 } pilha;
 
 
 void cria_pilha(pilha *P);
-void push(pilha *p, brinquedo toy);
+int push(pilha *p, brinquedo toy);
 int top(pilha *p, brinquedo *toy);
-int cheia_pilha(pilha p);
+int cheia_pilha(pilha *p);
 
 #endif // PILHA_H_INCLUDED

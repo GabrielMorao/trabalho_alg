@@ -4,28 +4,26 @@
 #include <stdlib.h>
 #include "fila.h"
 
-void cria_fila(fila* f) {
+void cria_fila(fila *f) {
     f->ini = 0;
     f->fim = 0;
     f->qtd = 0;
-    //return;
+    return;
 }
 
-int estaCheia(fila* f) {
-    return f->fim == max-1;
+int estaCheia(fila *f) {
+    return f->qtd == max;
 }
 
-int estaVazia(fila* f) {
-    if (f->qtd == 0)
+int estaVazia(fila *f) {
+    if (f->qtd == 0){
         return 1;
+    }
     return 0;
 }
 
-void entra(fila* f, pilha cx) {
-    if(estaVazia(f)){
-        f->vet[f->ini] = cx;
-    }
-    else  if (estaCheia(f)){
+int insere_fila(fila *f, pilha cx) {
+    if (estaCheia(&f)){
         return 1;
     }
     else{
@@ -33,20 +31,17 @@ void entra(fila* f, pilha cx) {
     }
     f->qtd++;
     f->fim++;
-    return;
+    return 0;
 }
 
-void sai_fila(fila* f, pilha *cx) {
+int remove_fila(fila *f, pilha *cx) {
     if (estaVazia(f)){
         return 1;
     }
-    *cx = f->vet[f->ini];
+    *cx = f->vet[cx->topo];
     f->qtd--;
-    if (f->ini == max-1)
-        f->ini = 0;
-    else
-        f->ini++;
-    return;
+    f->ini++;
+    return 0;
 }
 
 #endif // FILA_C_INCLUDED

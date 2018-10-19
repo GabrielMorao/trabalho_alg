@@ -11,8 +11,8 @@ typedef struct{
 }fila;
 
 void cria_fila(fila *f);
-void entra(fila* f, pilha cx);
-void sai_fila(fila *f, pilha *cx);
+int insere_fila(fila *f, pilha cx);
+int remove_fila(fila *f, pilha *cx);
 int vazia_fila(fila *f);
 int cheia_fila(fila *f);
 
